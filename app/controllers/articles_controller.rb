@@ -1,5 +1,15 @@
 class ArticlesController < ApplicationController
 	include ArticlesHelper
+	
+	before_filter :require_login, except: [:index, :show]
+
+def require_login
+    unless current_user
+  	  redirect_to root_path
+  	  return false
+   	end
+end
+
 def index
 	@articles = Article.all
 end
