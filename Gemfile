@@ -9,7 +9,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg', '~> 0.18.4'
+  gem 'pg'
 end
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
