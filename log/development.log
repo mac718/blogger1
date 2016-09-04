@@ -8383,3 +8383,28 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 261ms (Views: 243.8ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/articles" for ::1 at 2016-09-04 09:46:56 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ArticlesController> at /Users/michaelcoon/Documents/Odin_Project/blogger1/app/controllers/articles_controller.rb:4)
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 263ms (Views: 245.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/articles/2" for ::1 at 2016-09-04 09:46:58 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?[0m  [["article_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 2]]
+  Rendered collection of articles/_comment.html.erb [2 times] (8.7ms)
+  Rendered comments/_form.html.erb (9.4ms)
+  Rendered articles/show.html.erb within layouts/application (59.4ms)
+Completed 200 OK in 115ms (Views: 96.9ms | ActiveRecord: 2.5ms)
+
+
+  [1m[36mArticle Load (1.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
